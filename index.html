@@ -1,0 +1,1369 @@
+﻿```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ROMA | مطعم روما</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#100907;
+    --bg2:#21100a;
+    --text:#ffffff;
+    --muted:#c8beb7;
+    --card:rgba(255,255,255,.07);
+    --border:rgba(255,255,255,.12);
+    --gold:#ffbd35;
+    --orange:#ff5a22;
+    --green:#25d366;
+}
+
+body.light{
+    --bg:#fff8ef;
+    --bg2:#ffe5c8;
+    --text:#24150d;
+    --muted:#655950;
+    --card:rgba(255,255,255,.72);
+    --border:rgba(60,30,10,.13);
+}
+
+body{
+    font-family:'Cairo',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+    transition:.4s;
+}
+
+/* الخلفية */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+
+    background:
+    radial-gradient(circle at 10% 20%,
+        rgba(255,83,25,.22),
+        transparent 25%),
+
+    radial-gradient(circle at 90% 70%,
+        rgba(255,188,40,.14),
+        transparent 30%),
+
+    linear-gradient(
+        135deg,
+        var(--bg),
+        var(--bg2),
+        var(--bg)
+    );
+}
+
+body::after{
+    content:"🍕   🍅   🧀   🌶️   🫒   🥙   🍕   🧀";
+
+    position:fixed;
+    inset:0;
+
+    z-index:-1;
+
+    font-size:75px;
+    line-height:2.2;
+    word-spacing:35px;
+
+    opacity:.035;
+
+    transform:
+        rotate(-15deg)
+        scale(1.4);
+
+    pointer-events:none;
+}
+
+
+/* ================= NAVBAR ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+
+    z-index:1000;
+
+    padding:14px 7%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:rgba(12,7,5,.82);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+body.light nav{
+    background:rgba(255,255,255,.78);
+}
+
+.logo{
+    font-size:27px;
+    font-weight:900;
+    color:var(--gold);
+}
+
+.logo span{
+    color:var(--text);
+}
+
+nav ul{
+    list-style:none;
+
+    display:flex;
+    gap:25px;
+}
+
+nav ul a{
+    color:var(--text);
+    text-decoration:none;
+    font-weight:700;
+
+    transition:.3s;
+}
+
+nav ul a:hover{
+    color:var(--gold);
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+
+/* زر الوضع */
+
+.theme-btn{
+    width:43px;
+    height:43px;
+
+    border-radius:50%;
+
+    border:
+        1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    font-size:21px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.theme-btn:hover{
+    transform:
+        rotate(20deg)
+        scale(1.08);
+}
+
+
+/* زر الواتساب */
+
+.nav-whatsapp{
+    background:var(--green);
+
+    color:white !important;
+
+    text-decoration:none;
+
+    padding:9px 17px;
+
+    border-radius:30px;
+
+    font-weight:800;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+
+    padding:
+        150px 8%
+        80px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border:
+        1px solid var(--gold);
+
+    border-radius:50px;
+
+    color:var(--gold);
+
+    background:
+        rgba(255,189,53,.08);
+
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:
+        clamp(65px,11vw,125px);
+
+    line-height:.9;
+
+    font-weight:900;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            var(--gold),
+            var(--orange)
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+body.light .hero h1{
+    background:
+        linear-gradient(
+            135deg,
+            #35170b,
+            #d98200,
+            #e64b14
+        );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.hero h2{
+    font-size:
+        clamp(28px,4vw,47px);
+
+    margin-top:20px;
+}
+
+.hero p{
+    max-width:650px;
+
+    margin:
+        25px auto;
+
+    color:var(--muted);
+
+    line-height:2;
+
+    font-size:18px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.buttons{
+    display:flex;
+
+    justify-content:center;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+
+    padding:
+        14px 26px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+.btn-main{
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--orange)
+        );
+
+    color:#1b0c05;
+
+    box-shadow:
+        0 12px 30px
+        rgba(255,100,20,.25);
+}
+
+.btn-whatsapp{
+    background:var(--green);
+
+    color:#fff;
+}
+
+.btn-outline{
+    border:
+        1px solid var(--border);
+
+    color:var(--text);
+}
+
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.section-title small{
+    color:var(--gold);
+
+    font-weight:800;
+}
+
+.section-title h2{
+    font-size:42px;
+
+    margin-top:8px;
+}
+
+
+/* ================= MENU ================= */
+
+.menu-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px,1fr)
+        );
+
+    gap:22px;
+}
+
+.card{
+    background:var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    backdrop-filter:blur(10px);
+
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+
+    border-color:
+        rgba(255,189,53,.55);
+}
+
+.food-icon{
+    width:68px;
+    height:68px;
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:35px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,189,53,.12);
+
+    margin-bottom:18px;
+}
+
+.card h3{
+    font-size:22px;
+
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.9;
+}
+
+.price{
+    margin-top:18px;
+
+    color:var(--gold);
+
+    font-size:21px;
+
+    font-weight:900;
+}
+
+
+/* ================= OFFERS ================= */
+
+.offers{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(260px,1fr)
+        );
+
+    gap:23px;
+}
+
+.offer{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:30px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(110,40,10,.7),
+            rgba(30,12,7,.75)
+        );
+
+    border:
+        1px solid
+        rgba(255,189,53,.2);
+}
+
+body.light .offer{
+    background:
+        linear-gradient(
+            135deg,
+            #fff0dc,
+            #ffe2c0
+        );
+}
+
+.offer::after{
+    content:"🔥";
+
+    position:absolute;
+
+    left:-10px;
+    top:-20px;
+
+    font-size:110px;
+
+    opacity:.07;
+}
+
+.offer h3{
+    color:var(--gold);
+
+    font-size:25px;
+
+    margin-bottom:12px;
+}
+
+.offer p{
+    color:var(--muted);
+
+    line-height:1.9;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:45px;
+
+    align-items:center;
+}
+
+.about-box{
+    background:var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:30px;
+
+    padding:35px;
+}
+
+.about h2{
+    font-size:40px;
+
+    margin-bottom:18px;
+}
+
+.about p{
+    color:var(--muted);
+
+    line-height:2;
+}
+
+.features{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:15px;
+
+    margin-top:25px;
+}
+
+.feature{
+    padding:18px;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,189,53,.07);
+
+    text-align:center;
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact-box{
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+
+    padding:55px 30px;
+
+    border-radius:35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,189,53,.13),
+            rgba(255,80,20,.06)
+        );
+
+    border:
+        1px solid var(--border);
+}
+
+.contact-box h2{
+    font-size:42px;
+}
+
+.phone{
+    direction:ltr;
+
+    color:var(--gold);
+
+    font-size:30px;
+
+    font-weight:900;
+
+    margin:20px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+
+    padding:35px 20px;
+
+    color:#918781;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+/* ================= FLOATING WHATSAPP ================= */
+
+.whatsapp-float{
+    position:fixed;
+
+    left:22px;
+    bottom:22px;
+
+    width:64px;
+    height:64px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    display:grid;
+
+    place-items:center;
+
+    color:white;
+
+    font-size:30px;
+
+    text-decoration:none;
+
+    box-shadow:
+        0 10px 30px
+        rgba(37,211,102,.35);
+
+    z-index:999;
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:750px){
+
+    nav{
+        padding:12px 5%;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .nav-whatsapp{
+        padding:
+            8px 12px;
+
+        font-size:12px;
+    }
+
+    .theme-btn{
+        width:40px;
+        height:40px;
+    }
+
+    .hero{
+        padding:
+            140px 5%
+            70px;
+    }
+
+    section{
+        padding:70px 5%;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .section-title h2,
+    .about h2,
+    .contact-box h2{
+        font-size:32px;
+    }
+
+    .phone{
+        font-size:23px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        🍕 <span>ROMA</span>
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="#home">
+                الرئيسية
+            </a>
+        </li>
+
+        <li>
+            <a href="#menu">
+                المنيو
+            </a>
+        </li>
+
+        <li>
+            <a href="#offers">
+                الخصومات
+            </a>
+        </li>
+
+        <li>
+            <a href="#about">
+                عن المطعم
+            </a>
+        </li>
+
+        <li>
+            <a href="#contact">
+                التواصل
+            </a>
+        </li>
+
+    </ul>
+
+
+    <div class="nav-actions">
+
+        <!-- الوضع الليلي -->
+
+        <button
+            id="themeBtn"
+            class="theme-btn"
+            onclick="toggleTheme()">
+
+            🌙
+
+        </button>
+
+
+        <!-- واتساب -->
+
+        <a
+            class="nav-whatsapp"
+            href="https://wa.me/201007146092"
+            target="_blank">
+
+            💬 واتساب
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section
+    class="hero"
+    id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+
+            🍕 طعم مميز في قلب بسيون
+
+        </div>
+
+
+        <h1>
+            ROMA
+        </h1>
+
+
+        <h2>
+            مطعم روما
+        </h2>
+
+
+        <p>
+
+            اكتشف أجواء روما وطعمها المميز،
+            وتصفح المنيو وتواصل معنا مباشرة.
+
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                href="#menu"
+                class="btn btn-main">
+
+                🍕 شوف المنيو
+
+            </a>
+
+
+            <a
+                href="https://wa.me/201007146092"
+                target="_blank"
+                class="btn btn-whatsapp">
+
+                💬 اطلب عبر واتساب
+
+            </a>
+
+
+            <a
+                href="#offers"
+                class="btn btn-outline">
+
+                🔥 الخصومات
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MENU ================= -->
+
+<section id="menu">
+
+    <div class="section-title">
+
+        <small>
+            OUR MENU
+        </small>
+
+        <h2>
+            اختار أكلك 🍕
+        </h2>
+
+    </div>
+
+
+    <div class="menu-grid">
+
+
+        <!-- بيتزا -->
+
+        <div class="card">
+
+            <div class="food-icon">
+                🍕
+            </div>
+
+            <h3>
+                بيتزا
+            </h3>
+
+            <p>
+                اختيارات متنوعة من البيتزا
+                بإضافات مختلفة.
+            </p>
+
+            <div class="price">
+                حسب الحجم والإضافة
+            </div>
+
+        </div>
+
+
+        <!-- كريب -->
+
+        <div class="card">
+
+            <div class="food-icon">
+                🥙
+            </div>
+
+            <h3>
+                كريب
+            </h3>
+
+            <p>
+                كريب حادق وحلو
+                بإضافات متنوعة.
+            </p>
+
+            <div class="price">
+                حسب الاختيار
+            </div>
+
+        </div>
+
+
+        <!-- برجر -->
+
+        <div class="card">
+
+            <div class="food-icon">
+                🍔
+            </div>
+
+            <h3>
+                برجر
+            </h3>
+
+            <p>
+                برجر بإضافات وصوصات
+                مختلفة.
+            </p>
+
+            <div class="price">
+                حسب الاختيار
+            </div>
+
+        </div>
+
+
+        <!-- بطاطس وإضافات -->
+
+        <div class="card">
+
+            <div class="food-icon">
+                🍟
+            </div>
+
+            <h3>
+                بطاطس وإضافات
+            </h3>
+
+            <p>
+                إضافات وصوصات متنوعة
+                لتكمل وجبتك.
+            </p>
+
+            <div class="price">
+                حسب الاختيار
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <p style="
+        text-align:center;
+        color:var(--muted);
+        font-size:13px;
+        margin-top:35px;
+    ">
+
+        ⚠️ الأسعار المعروضة مؤقتة لحين إضافة
+        المنيو الرسمي المحدث للمطعم.
+
+    </p>
+
+</section>
+
+
+
+<!-- ================= OFFERS ================= -->
+
+<section id="offers">
+
+    <div class="section-title">
+
+        <small>
+            HOT DEALS
+        </small>
+
+        <h2>
+            عروض وخصومات 🔥
+        </h2>
+
+    </div>
+
+
+    <div class="offers">
+
+
+        <div class="offer">
+
+            <h3>
+                🔥 عروض روما
+            </h3>
+
+            <p>
+
+                تابع أحدث عروض وخصومات
+                مطعم روما وتواصل معنا
+                لمعرفة العروض المتاحة.
+
+            </p>
+
+        </div>
+
+
+        <div class="offer">
+
+            <h3>
+                🍕 وجبتك المفضلة
+            </h3>
+
+            <p>
+
+                اختار وجبتك وتواصل معنا
+                مباشرة عبر واتساب
+                للاستفسار والطلب.
+
+            </p>
+
+        </div>
+
+
+        <div class="offer">
+
+            <h3>
+                💬 اطلب بسهولة
+            </h3>
+
+            <p>
+
+                اضغط على زر واتساب
+                وتواصل مباشرة مع المطعم.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <div class="about">
+
+
+        <div class="about-box">
+
+            <h2>
+                عن مطعم روما 🍕
+            </h2>
+
+            <p>
+
+                مطعم روما يقدم مجموعة متنوعة
+                من الأكلات والوجبات، مع تصميم
+                إلكتروني عصري يسهل على العميل
+                معرفة المنيو والتواصل مع المطعم.
+
+            </p>
+
+
+            <div class="features">
+
+                <div class="feature">
+                    🍕
+                    <br>
+                    بيتزا
+                </div>
+
+                <div class="feature">
+                    🥙
+                    <br>
+                    كريب
+                </div>
+
+                <div class="feature">
+                    🍔
+                    <br>
+                    برجر
+                </div>
+
+                <div class="feature">
+                    💬
+                    <br>
+                    واتساب
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <div style="
+                font-size:120px;
+                text-align:center;
+            ">
+
+                🍕🥙
+
+            </div>
+
+
+            <h2 style="
+                text-align:center;
+                margin-top:10px;
+            ">
+
+                ROMA
+
+            </h2>
+
+
+            <p style="
+                text-align:center;
+            ">
+
+                Pizza • Crepe • Burger
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="contact-box">
+
+        <div style="
+            font-size:55px;
+        ">
+
+            💬
+
+        </div>
+
+
+        <h2>
+            تواصل مع روما
+        </h2>
+
+
+        <p style="
+            color:var(--muted);
+            margin-top:10px;
+        ">
+
+            للطلبات والاستفسار عن المنيو
+            والعروض المتاحة.
+
+        </p>
+
+
+        <div class="phone">
+
+            01007146092
+
+        </div>
+
+
+        <div class="buttons">
+
+            <a
+                href="https://wa.me/201007146092"
+                target="_blank"
+                class="btn btn-whatsapp">
+
+                💬 تواصل عبر واتساب
+
+            </a>
+
+        </div>
+
+
+        <p style="
+            margin-top:25px;
+            color:#888;
+            font-size:13px;
+        ">
+
+            📍 بسيون - الغربية
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div>
+        © 2026 ROMA Restaurant
+    </div>
+
+    <div style="
+        margin-top:8px;
+    ">
+
+        🍕 صنع بحب لمحبي الأكل
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= FLOATING WHATSAPP ================= -->
+
+<a
+    href="https://wa.me/201007146092"
+    target="_blank"
+    class="whatsapp-float"
+    title="تواصل عبر واتساب">
+
+    💬
+
+</a>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* تبديل الوضع الليلي */
+
+function toggleTheme(){
+
+    document.body.classList.toggle("light");
+
+    const button =
+        document.getElementById("themeBtn");
+
+
+    if(
+        document.body.classList.contains("light")
+    ){
+
+        button.innerHTML = "☀️";
+
+        localStorage.setItem(
+            "romaTheme",
+            "light"
+        );
+
+    }
+
+    else{
+
+        button.innerHTML = "🌙";
+
+        localStorage.setItem(
+            "romaTheme",
+            "dark"
+        );
+
+    }
+
+}
+
+
+/* استرجاع الوضع المحفوظ */
+
+const savedTheme =
+    localStorage.getItem("romaTheme");
+
+
+if(savedTheme === "light"){
+
+    document.body.classList.add("light");
+
+    document.getElementById(
+        "themeBtn"
+    ).innerHTML = "☀️";
+
+}
+
+</script>
+
+
+</body>
+</html>
+```
